@@ -1,0 +1,44 @@
+[babeldoc]
+
+# 要翻译的文件列表，批量模式
+files = [
+  "source/example.pdf",
+]
+
+# 基本设置
+debug = false                   # 是否启用调试模式，启用后会导出详细的中间结果
+lang-in = "zn"                  # 源语言代码
+lang-out = "en"                 # 目标语言代码
+qps = 4                         # 翻译服务的每秒查询限制
+output = "./output"             # 翻译文件的输出目录
+
+# PDF处理选项
+split-short-lines = false       # 是否强制将短行分割为不同段落
+short-line-split-factor = 0.8   # 分割阈值因子
+skip-clean = false              # 是否跳过PDF清理步骤
+dual-translate-first = false    # 双语PDF模式中是否将翻译页放在前面
+disable-rich-text-translate = false  # 是否禁用富文本翻译
+use-alternating-pages-dual = false   # 是否使用交替页面模式进行双语PDF输出
+watermark-output-mode = "no_watermark" # 水印输出模式："watermarked"(默认)/"no_watermark"/"both"
+max-pages-per-part = 50         # 分段翻译的每部分最大页数
+translate-table-text = true    # 是否翻译表格文本(实验性功能)
+skip-scanned-detection = false  # 是否跳过扫描文档检测
+ocr-workaround = false          # 是否使用OCR处理扫描PDF
+
+
+# 翻译服务
+openai = true                   # 是否使用OpenAI进行翻译
+openai-model = "your-model-name"    # 使用的OpenAI模型
+openai-base-url = "your-api-base-url"  # OpenAI API的基础URL
+openai-api-key = "your-api-key"  # OpenAI服务的API密钥
+
+# 输出控制
+no-dual = true                 # 是否不输出双语PDF文件
+no-mono = false                 # 是否不输出单语PDF文件
+min-text-length = 5             # 翻译的最小文本长度
+report-interval = 0.5           # 进度报告间隔(秒)
+
+# 离线资源管理
+# 取消注释以下选项之一(根据需要):
+# generate-offline-assets = "/path/to/output/dir"  # 生成离线资源包的目录
+# restore-offline-assets = "/path/to/offline_assets_package.zip"  # 恢复离线资源包的文件路径 
